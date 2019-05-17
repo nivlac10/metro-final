@@ -1,0 +1,108 @@
+@import "~styles/base/_variables.scss";
+.main{
+  //padding-top: 60px;
+  //padding: 60px;
+  padding-top: 60px;
+  overflow: hidden !important;
+}
+ 
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  position: absolute;
+  top: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+  width: 250px;;
+}
+
+.circle {
+  border-radius: 100%;
+  width: 20px;
+  padding: 6px;
+  background: $primary-color;
+ padding: 5px;
+}
+
+.with-bg {
+ // background: url('../../assets/images/office.jpg') no-repeat center;
+  //overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  max-height: 130px;
+}
+
+.topBut{
+  
+ // margin-right: 40%;
+  width: 5%;
+  
+
+
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+  padding-left: 10px !important;
+}
+
+.header-box-shadow {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.bottom-to-top {
+  border: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-image:
+  linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%;
+ // padding: 5px;
+ // border-radius: $border-radius;
+}
+
+.icons{
+ padding: 9px;
+}
+
+.meBut{
+ // background: $primary-color;
+  //color: auto;
+  box-shadow: $shadow-value !important;
+// border-radius: $border-radius;
+    width: 100%;
+  padding: 15px;
+  font-size: 15px;
+ //position: fixed;
+}
+
+mat-expansion-panel{
+  margin-left: -9px;
+  
+}
+
+mat-list-item{
+  color: rgb(24, 146, 228);
+}
+
+.ml-3{
+  margin-left: 25px;
+  
+}
+
+.nav-link-text2{
+  margin-top: 10px;
+}
