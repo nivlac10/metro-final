@@ -1,0 +1,143 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+      
+        <mat-sidenav-container  [class.m2app-dark]="isDarkTheme" (window:resize)="onResize($event)">
+                
+            <mat-toolbar *ngIf='ctrl.isCompany' class='app-toolbar mat-elevation-z0' >
+  
+         
+                <a>Welcome, {{ctrl.current_key}}</a> 
+          
+               
+          
+                  <span class="app-toolbar-filler"></span>
+          
+          
+                  
+          
+                    <button class='topBut' mat-button (click)="changeColor()">
+                        <mat-icon>format_color_fill</mat-icon>
+                      </button>
+
+                      <button  mat-raised-button block color='primary' (click)="Pop()">
+                          How To Use
+                        </button>
+          
+                      <button class='topBut' mat-button [mat-menu-trigger-for]="menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+          
+          
+          
+          </mat-toolbar>
+          
+                            <mat-toolbar *ngIf='ctrl.hasLoggedIn' class='app-toolbar mat-elevation-z0' >
+                               
+
+                                    <button *ngIf='line' mat-button (click)="check()">
+                                      <i class="material-icons app-toolbar-menu">menu</i>
+                                    </button>
+
+                                  
+                                     
+                                  <a (click)="goHome()">Welcome, {{username}}</a> 
+
+                                 
+
+                                    <span class="app-toolbar-filler"></span>
+                         
+                          
+                                  
+  
+                                      <button class='topBut' mat-button (click)="changeColor()">
+                                          <mat-icon>format_color_fill</mat-icon>
+                                        </button>
+
+                                        <button class='topBut' mat-button [mat-menu-trigger-for]="menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                          </button>
+                       
+                       
+                      
+                      </mat-toolbar>
+            
+            
+                      <mat-menu x-position="before" #menu="matMenu">
+                        <button mat-menu-item (click)="logOut()">Sign Out</button>
+                        <!-- <button mat-menu-item>Option 2</button> -->
+                      </mat-menu>
+
+
+
+                      
+              <mat-sidenav *ngIf='ctrl.hasLoggedIn && !canHide' #sidenav mode="side" opened class="bottom-to-top">
+                       
+                <mat-toolbar>
+                  <mat-toolbar-row>
+                    <h2 class="toolbar-title"> RADECOM </h2>
+                    <a
+                    (click)='sidenav.close()'>
+                   <mat-icon style="float:right"  matListIcon class="app-nav-list-icon"> money </mat-icon>
+                 </a>
+                  </mat-toolbar-row>
+            </mat-toolbar>
+                            <div class="mt-3">
+                                <mat-nav-list>
+                                    <!-- wrap all the nav items in an accordion panel -->
+                                    <mat-accordion [displayMode]="flat" multi>
+                                      <div *ngFor="let navItem of navList">
+                              
+                                        <!-- use a simple div for an item that has no children,
+                                          match up the styling to the expansion panel styles -->
+                                        <div class="nav-head" *ngIf="navItem.pages.length === 0">
+                                          <a mat-list-item class="ml-2" style="font-size:15px;"
+                                            [routerLink]="navItem.link"
+                                            routerLinkActive="selected"
+                                           >
+                                            <mat-icon class='icons' >{{navItem.icon}}</mat-icon>
+                                            <span class="nav-link-text">{{navItem.heading}}</span>
+                                          </a>
+                                        </div>
+                              
+                                        <!-- use expansion panel for heading item with sub page links -->
+                                        <mat-expansion-panel *ngIf="navItem.pages.length > 0"
+                                          class="mat-elevation-z0">
+                                          <mat-expansion-panel-header class="nav-head" [expandedHeight]="'48px'">
+                                            <mat-panel-title class="nav-link">
+                                              <mat-icon class='icons' >{{navItem.icon}}</mat-icon>
+                                              <span class="nav-link-text2">{{navItem.heading}}</span>
+                                            </mat-panel-title>
+                                          </mat-expansion-panel-header>                                                                                                                                                                                                                                                
+                              
+                                          <div class="nav-section">
+                                            <!-- loop through all your sub pages inside the expansion panel content -->
+                                            <div *ngFor="let navPage of navItem.pages"
+                                              class="nav-item">
+                                              <a mat-list-item class="ml-3" style="font-size:15px;"
+                                                [routerLink]="navPage.link"
+                                                routerLinkActive="selected"
+                                                >{{navPage.title}}</a>
+                                            </div>
+                                          </div>
+                                        </mat-expansion-panel>
+                                      </div>
+                                    </mat-accordion>
+                                  </mat-nav-list>
+                            </div>
+                        
+              </mat-sidenav>
+                
+
+
+                    
+              <router-outlet > 
+                  <div class='main'></div>
+                </router-outlet> 
+            
+</mat-sidenav-container>
+
+
+             
+
+
+
