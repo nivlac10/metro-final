@@ -1,0 +1,30 @@
+<!-- <div>-->
+   
+     
+      <div class="form-style-8">
+          <div>
+             <div>
+              <div class='followed-items'>
+                  <div *ngFor="let item of items"  text-center>
+                
+                      <mat-card class='driver' *ngIf='item.admin'>
+                         <h4>{{item.admin}}</h4>
+                      </mat-card>
+                      <mat-card class='user' *ngIf='item.user'>
+                          <h4>{{item.user}}</h4>
+                       </mat-card>
+                  
+                    </div>
+          </div>
+        </div>
+            <form #heroForm="ngForm" (ngSubmit)="onSubmit2(heroForm.value)">
+              <div class="form-group">
+                <label for="name">Message</label>
+                <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+                <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Message is required</div>
+              </div>
+              <button type="submit" [disabled]="!heroForm.valid">Send</button>
+            </form>
+          </div>
+        </div>
+    

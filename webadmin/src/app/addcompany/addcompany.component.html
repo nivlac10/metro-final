@@ -1,0 +1,43 @@
+
+
+<div class="form-style-8">
+    
+  <div *ngIf="!submitted">
+    <h2>Enter Company Name Here</h2>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+      <div class="form-group">
+        <label for="name">Company name</label>
+        <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Name is required</div>
+      </div>
+      <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+      
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    <h2>Company Added Successfully</h2>
+  
+    <button class='ended' type="submit" (click)="submitted=false">Add Another</button>
+  </div>
+</div>
+
+
+<mat-card *ngFor='let item of items'>
+   
+  
+          
+          <mat-card><h2>{{item.key}}</h2></mat-card>
+  
+          <button mat-raised-button block color='primary' (click)="openDialog2(item.name)">Pay</button>
+          <button mat-raised-button block color='primary' (click)="view(item.key)">View</button>
+         
+        
+    </mat-card>
+    
+    
+
+    <mat-progress-bar
+    *ngIf='started'
+     class="app-progress"
+     mode="indeterminate"
+     aria-label="Indeterminate progress-bar example"></mat-progress-bar>

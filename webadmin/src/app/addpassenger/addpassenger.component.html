@@ -1,0 +1,79 @@
+ 
+
+
+
+  <div class="form-style-8">
+      <div *ngIf="!ctrl.submitted">
+      <h2>Add User Info</h2>
+        <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" name="email" ngModel #email="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Email is required</div>
+            <label for="name">Password (must be 6 or more characters long)</label>
+            <input type="password" class="form-control" name="password" ngModel #password="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Password is required</div>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Name is required</div>
+            <label for="name">Phone</label>
+            <input type="number" class="form-control" name="phone" ngModel #phone="ngModel" required>
+            <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine">Phone is required</div>
+            
+
+            
+
+          </div>
+        
+  
+
+         <span>Profile Picture</span>
+          <div class="form-group">
+              <input type="file" (change)="FileChangeEvent($event)">
+            </div>
+
+            <div *ngIf="CurrentFile">
+                <img [src]="ImageSource">
+            </div>
+
+
+            <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+            <mat-spinner *ngIf='isEnabledUpload'></mat-spinner>
+         
+  </form>
+        
+
+          
+         
+      </div>
+      <div *ngIf="ctrl.submitted">
+        <h2>User Created Successfully</h2>
+      
+        <button class='ended' type="submit" (click)="doThat()">Create Another</button>
+        
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

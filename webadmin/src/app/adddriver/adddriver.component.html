@@ -1,0 +1,121 @@
+ 
+
+
+
+  <div class="form-style-8">
+      <div *ngIf="!ctrl.submitted">
+      <h2>Add Driver Info</h2>
+        <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" name="email" ngModel #email="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Email is required</div>
+            <label for="name">Password (must be 6 or more characters long)</label>
+            <input type="password" class="form-control" name="password" ngModel #password="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Password is required</div>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Name is required</div>
+            <label for="name">Phone</label>
+            <input type="number" class="form-control" name="phone" ngModel #phone="ngModel" required>
+            <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine">Phone is required</div>
+            <label for="name">Bank</label>
+            <input type="text" class="form-control" name="bank" ngModel #bank="ngModel" required>
+            <div class="alert alert-danger" [hidden]="account.valid || account.pristine">Bank is required</div>
+            <label for="name">Account Number</label>
+            <input type="number" class="form-control" name="account" ngModel #account="ngModel" required>
+            <div class="alert alert-danger" [hidden]="account.valid || account.pristine">Account Number is required</div>
+            <label for="name">License</label>
+            <input type="text" class="form-control" name="license" ngModel #license="ngModel" required>
+            <div class="alert alert-danger" [hidden]="license.valid || license.pristine">License is required</div>
+            <label for="name">City</label>
+            <input type="text" class="form-control" name="city" ngModel #city="ngModel" required>
+            <div class="alert alert-danger" [hidden]="city.valid || city.pristine">City is required</div>
+            <label for="name">Plate</label>
+            <input type="text" class="form-control" name="plate" ngModel #plate="ngModel" required>
+            <div class="alert alert-danger" [hidden]="plate.valid || plate.pristine">Plate is required</div>
+            <label for="name">Car Model</label>
+            <input type="text" class="form-control" name="model" ngModel #model="ngModel" required>
+            <div class="alert alert-danger" [hidden]="model.valid || model.pristine">Model is required</div>
+            <label for="name">Car Year</label>
+            <input type="number" class="form-control" name="year" ngModel #year="ngModel" required>
+            <div class="alert alert-danger" [hidden]="year.valid || year.pristine">Year is required</div>
+            <label for="name">Number of Seats</label>
+            <input type="number" class="form-control" name="seat" ngModel #seat="ngModel" required>
+            <div class="alert alert-danger" [hidden]="seat.valid || seat.pristine">Seats Number is required</div>
+            
+
+   
+<div class="dropdown">
+    <button class="dropbtn">Choose Your Car Type</button>
+   
+    <div class="dropdown-content">
+    <span *ngFor='let fist of fists' >
+      <button class='dropbtn' (click)='openItem(fist)'>
+          {{fist}}
+      </button>
+    </span>
+    </div>
+  </div>
+  <span>{{myCar}}</span>  
+
+          </div>
+        
+          <span>License Picture</span>
+          <div class="form-group">
+                  <input type="file" (change)="FileChangeEvent($event)">
+                </div>
+                <div *ngIf="CurrentFile">
+                    <img [src]="ImageSource">
+                </div>
+
+         <span>Profile Picture</span>
+          <div class="form-group">
+              <input type="file" (change)="FileChangeEvent2($event)">
+            </div>
+
+            <div *ngIf="CurrentFile2">
+                <img [src]="ImageSource">
+            </div>
+
+
+            <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+            <mat-spinner *ngIf='isEnabledUpload'></mat-spinner>
+         
+  </form>
+        
+
+          
+         
+      </div>
+      <div *ngIf="ctrl.submitted">
+        <h2>Driver Created Successfully</h2>
+      
+        <button class='ended' type="submit" (click)="doThat()">Create Another</button>
+       
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

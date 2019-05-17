@@ -1,0 +1,84 @@
+
+<mat-card *ngIf='allowed' class='center'>
+  
+    <mat-card class='cont_2'> 
+        
+      <div class='pan_'><div class='seperator'> 
+          <img *ngIf='snap.picture != null' [src]='snap.picture' (click)='gotoPage(snap)'>
+        <h2>Accounting</h2>
+        <hr>
+        <mat-card class="h1">Total Earnings (100%) => ₦{{earnings}}</mat-card>
+        <mat-card class="h1">Maintance (2%) => ₦{{paymain}}</mat-card>
+        <mat-card class="h1">Referral (5%) => ₦{{payfed}}</mat-card>
+        <mat-card class="h1">Driver Share (80%) => ₦{{paydriver}}</mat-card>
+        <mat-card class="h1">Company Share (10%) => ₦{{paycompany}}</mat-card>
+        <mat-card class="h1">Agent ({{snap.companies}}) share (3%) => ₦{{payagent}}</mat-card>
+                  
+    
+     
+      
+      <button block mat-raised-button color="primary" (click)="confirmDriverPay()">Disburse</button>
+      
+      
+      <h2>OutStanding Payments</h2>
+      <hr>
+      <mat-card class="h1">Total Paid to Driver => ₦{{driverPay}}</mat-card>
+      <button block mat-raised-button color="primary" (click)="confirmPay1()">Pay</button>
+      <mat-card class="h1">Total Paid to Ajetaxi => ₦{{companypay}}</mat-card>
+      <button block mat-raised-button color="primary" (click)="confirmPay2()">Pay</button>
+      <mat-card class="h1">Total Paid to Agent => ₦{{AgentPay}}</mat-card>
+      <button block mat-raised-button color="primary" (click)="confirmPay3()">Pay</button>
+      <mat-card class="h1">Total Paid to Referral => ₦{{federalPay}}</mat-card>
+      <button block mat-raised-button color="primary" (click)="confirmPay4()">Pay</button>
+      <mat-card class="h1">Total Paid to Maintanance => ₦{{MaintanancePay}}</mat-card>
+      <button block mat-raised-button color="primary" (click)="confirmPay5()">Pay</button>
+
+      <button block mat-raised-button color="primary" (click)="confirmAgentPay()">Pay All</button>
+      
+      <button block mat-raised-button color="primary" (click)="History()">History</button>
+   
+
+    </div> 
+      
+      <!-- <div class='pan_'><div class='seperator'> Referal Earnings </div><h1>₦ {{snap.refEarnings}}</h1>
+     
+        <button block mat-raised-button color="primary" (click)="openDialog4()">Pay Driver</button>
+    
+    </div>  -->
+    
+      <div *ngIf='wallet' class='pan_'><div class='seperator'> Wallet Funds </div><h2>₦ {{snap.funds}}</h2></div>
+      </div>
+
+    </mat-card>
+
+    <div class='cont_1'>
+     <div class='pan'><div class='seperator'> Name </div><h2>{{snap.name}}</h2>    </div>
+     <div class='pan'><div class='seperator'> License </div><h2>{{snap.license}}</h2>    </div>
+     <div class='pan'><div class='seperator'> Phone </div><h2>{{snap.phoneNumber}}</h2>   </div>
+     <div class='pan'><div class='seperator'> Bank Account Number </div><h2>{{snap.accountNumber}}</h2>    </div>
+     <div class='pan'><div class='seperator'> Bank Name </div><h2>{{snap.Bank}}</h2>    </div>
+     <div class='pan'><div class='seperator'> City </div><h2>{{snap.city}}</h2>    </div>
+     <div class='pan'><div class='seperator'> Car Model </div><h2>{{snap.carmodel}}</h2>    </div>
+     <div class='pan'><div class='seperator'> Driver Rating </div><h2>{{snap.rating}} out of 5</h2>    </div>
+    </div>
+
+    
+  <!-- <i (click)="openDialog()">delete</i>
+  <i (click)="Mail(snap.email, snap.name)">mail</i>
+
+  <div class='seperator_Buttons'> Confirm Payment </div>
+  <i (click)="openDialog2()">done</i>
+
+  <div class='seperator_Buttons'> Payment History</div>
+  <i (click)="History()">timer</i>
+
+  <div *ngIf='!snap.blocked' class='seperator_Buttons'>Block This Driver</div>
+  <i *ngIf='!snap.blocked' (click)="Block()">block</i>
+
+  <div *ngIf='snap.blocked' class='seperator_Buttons'>UnBlock This Driver</div>
+  <i *ngIf='snap.blocked' (click)="UnBlock()">forward</i>
+
+    -->
+  
+  </mat-card>
+

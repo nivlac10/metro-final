@@ -1,0 +1,50 @@
+
+
+<mat-card *ngIf='allowed'  class='center'>
+    <!-- <div>
+      
+
+      </div> -->
+      <mat-card class='cont_2'> 
+          <img [src]='snap.picture' (click)='gotoPage(snap.picture)'>
+          <div class='pan_'> 
+              
+
+      <div class='seperator'>Name</div><mat-card>{{snap.name}}</mat-card>
+     
+      <div class='seperator'>Phone</div><mat-card>{{snap.phoneNumber}}</mat-card>
+
+      <div class='seperator'>Bank</div><mat-card>{{snap.bank}}</mat-card>
+
+      <div class='seperator'>AccountNumber</div><mat-card>{{snap.accountNumber}}</mat-card>
+
+    
+          <h2>Accounting</h2>
+         <hr>
+ 
+          <mat-card>Referral: ₦ {{snap.refEarnings}}</mat-card>
+        
+       
+         
+        <button  block mat-raised-button color='primary' (click)="confirmRefPay()">Pay Client</button>
+     
+  
+   
+        <!-- <button class="material-icons" block mat-raised-button (click)="History()">Driver Work History</button> -->
+    
+     
+      <button mat-raised-button block color='primary' (click)="History()">Ride History</button>
+
+     <mat-card  *ngIf='!snap.blocked'>Block This User</mat-card>
+  <button *ngIf='!snap.blocked' mat-raised-button block color='primary' (click)="Block()">Block</button>
+
+ <mat-card  *ngIf='snap.blocked'>UnBlock This User</mat-card>
+  <button *ngIf='snap.blocked' mat-raised-button block color='primary' (click)="UnBlock()">UnBlock</button>
+
+</div>
+  
+</mat-card> 
+
+    </mat-card>
+  
+    

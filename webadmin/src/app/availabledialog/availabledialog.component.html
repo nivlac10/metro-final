@@ -1,0 +1,20 @@
+<h2>Choose An Available Driver</h2>
+<mat-progress-bar
+            *ngIf='started'
+             class="app-progress"
+             mode="indeterminate"
+             aria-label="Indeterminate progress-bar example"></mat-progress-bar>
+
+<div class="mt-3">
+  <span *ngFor="let item of items">
+    <button  mat-button class="ml-2" color='primary' style="font-size:15px;" (click)='Assign(item)'>
+      <img class='mImg' [src]="item.pic">
+       <div>{{item.id}}</div>
+       <div>{{item.cartype}}</div>
+    </button>
+  </span>
+
+  
+
+</div>
+

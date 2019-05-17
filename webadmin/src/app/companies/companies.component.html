@@ -1,0 +1,78 @@
+
+
+
+<mat-card padding class='add_cont'>
+    <button color='primary' mat-raised-button block (click)="Toggle()">
+      Edit your Details
+    </button>
+  </mat-card>
+  
+  <div *ngIf="!hidden" class="form-style-8">
+      
+    <div *ngIf="!submitted">
+      <h2>Enter Account Number</h2>
+     <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+        <div class="form-group">
+          <label for="name">Account Number</label>
+          <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+          <label for="name">Bank Name</label>
+          <input type="text" class="form-control" name="bank" ngModel #bank="ngModel" required>
+          <label for="name">Account Name</label>
+          <input type="text" class="form-control" name="nex" ngModel #nex="ngModel" required>
+          <label for="name">Password Change</label>
+          <input type="text" class="form-control" name="password" ngModel #nex="ngModel" required>
+          <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Bank and Account is required</div>
+        </div>
+        <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+        <button class='ended' type="submit" (click)="hidden=true">Close</button>
+      </form>
+    </div>
+    <div *ngIf="submitted">
+      <h2>Account and Bank Changed Successfully</h2>
+      <button class='ended' type="submit" (click)="submitted=false">Add Another</button>
+      <button class='ended' type="submit" (click)="hidden=true">Close</button>
+    </div>
+  </div>
+  
+  
+  <mat-card class='center'>
+     
+    
+        <mat-card  class='cont_2'>
+         
+         
+            
+            <div class='seperator'> 
+            <h2>{{ctrl.current_key}}</h2>
+            <mat-card class="h1" block>Account Number => {{snap.account}}</mat-card>
+            <mat-card class="h1" block>Bank Name => {{snap.bank}}</mat-card>
+            <mat-card class="h1" block>Account Name => {{snap.name}}</mat-card>
+            <mat-card class="h1" block>Total Earnings</mat-card>
+            <mat-card>₦ {{snap.earnings}}</mat-card>
+          </div>
+         
+         
+          <button color='primary' mat-raised-button block (click)="openDialog2()">Payment</button>
+       
+       
+
+          
+      </mat-card>
+
+      
+
+      <mat-card>
+        <h2>All Assigned Drivers</h2>
+        <hr>
+        <div *ngFor="let item of items" text-center>
+            <mat-card>
+               <h4>Name => {{item.name}}</h4>
+               <h4>Phone => {{item.phone}}</h4>
+            </mat-card>
+          </div>
+      </mat-card>
+
+     
+      
+      </mat-card>
+  

@@ -1,0 +1,20 @@
+<div>
+  <mat-card *ngFor="let item of items" class='center'>
+      <div>
+          <img [src]='item.picture'>
+  
+        </div>
+    <div class='seperator'> Name </div><p><strong>{{item.name}}</strong> </p>
+    <div class='seperator'> Location </div><p><strong>{{item.location}}</strong> </p>
+    <div class='seperator'> Destination </div><p><strong>{{item.destination}}</strong> </p>
+    <div class='seperator'> Time </div><p><strong>{{item.time}}</strong> </p>
+    <div class='seperator'> Date </div><p><strong>{{item.date}}</strong> </p>
+    <div class='seperator'> PhoneNumber </div><p><strong>{{item.phone}}</strong> </p>
+    
+  
+    <i class="material-icons" (click)="openDialog(item.key)">done</i>
+    
+  
+  </mat-card>
+  </div>
+  

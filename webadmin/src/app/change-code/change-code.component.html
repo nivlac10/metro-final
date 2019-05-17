@@ -1,0 +1,80 @@
+
+<div class="form-style-8">
+  <div *ngIf="!submitted">
+    <h2>Change Login Password</h2>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+      <div class="form-group">
+        <label for="name">New Password</label>
+        <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Password is required</div>
+      </div>
+      <button type="submit" [disabled]="!heroForm.valid">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    <h2>Password Changed Successfully</h2>
+  
+    <button class='ended' type="submit" (click)="submitted=false">Change Password Again</button>
+  </div>
+</div>
+
+
+<mat-card>
+    <h2>Include Ride Pooling</h2>
+    <mat-radio-group class="example-radio-group" [(ngModel)]="favoritePool">
+    <mat-radio-button class="example-radio-button" *ngFor="let pool of pools" [value]="pool">
+      {{pool}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="example-selected-value">Choose</div>
+  <button block mat-raised-button color="primary" (click)="triggerPool()">Change</button>
+  </mat-card>
+
+  <mat-card>
+      <h2>Include Ride Scheduling</h2>
+      <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteschedule">
+      <mat-radio-button class="example-radio-button" *ngFor="let schedule of schedules" [value]="schedule">
+        {{schedule}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div class="example-selected-value">Choose</div>
+    <button block mat-raised-button color="primary" (click)="triggerSchedule()">Change</button>
+    </mat-card>
+
+    <mat-card>
+        <h2>Refer To Earn Cash</h2>
+        <mat-radio-group class="example-radio-group" [(ngModel)]="favoriterefer">
+        <mat-radio-button class="example-radio-button" *ngFor="let refer of refers" [value]="refer">
+          {{refer}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div class="example-selected-value">Choose</div>
+      <button block mat-raised-button color="primary" (click)="triggerRefer()">Change</button>
+      </mat-card>
+
+
+      <mat-card>
+          <h2>Driver Wallet</h2>
+          <mat-radio-group class="example-radio-group" [(ngModel)]="favoritewallet">
+          <mat-radio-button class="example-radio-button" *ngFor="let wallet of wallets" [value]="wallet">
+            {{wallet}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div class="example-selected-value">Choose</div>
+        <button block mat-raised-button color="primary" (click)="triggerWallet()">Change</button>
+      </mat-card>
+
+
+        <mat-card>
+            <h2>Use Inspection Companies</h2>
+            <mat-radio-group class="example-radio-group" [(ngModel)]="favoritecompany">
+            <mat-radio-button class="example-radio-button" *ngFor="let company of companys" [value]="company">
+              {{company}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="example-selected-value">Choose</div>
+          <button block mat-raised-button color="primary" (click)="triggerCompany()">Change</button>
+        </mat-card>
+
+
+    
